@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#soma").click(function(){
+    let soma = 2 + 4
+    $("div").html("<h1>" + soma + "</h1>");
+    $("h2").html("calculo: num1 + num2");
+  });
+  $("#sub").click(function(){
+    let sub = 2 - 4
+    $("div").html("<h1>" + sub + "</h1>");
+    $("h2").html("calculo: num1 - num2");
+  });
+  $("#mult").click(function(){
+    let mult = 2 * 4
+    $("div").html("<h1>" + mult + "</h1>");
+    $("h2").html("calculo: num1 * num2");
+  });
+  $("#dividir").click(function(){
+    let dividir = 2 / 4
+    $("div").html("<h1>" + dividir + "</h1>");
+    $("h2").html("calculo: num1 / num2");
+  });
+  $("button").click(function(){
+    alert("calcular")
+  });
+});
+</script>
+<style>
+  button {
+    width: 100px;
+    height: 100px;
+    font-size: xx-large;
+  };
+</style>
+</head>
+<body>
+    <h1>numero 1: 2 <br>
+        numero 2: 4
+    </h1>
+    
+    <h2></h2>
+
+    <button id="soma">+</button>
+    <button id="sub">-</button>
+    <button id="mult">*</button>
+    <button id="dividir">/</button>
+      
+
+    <div></div>
+</body>
+</html>
