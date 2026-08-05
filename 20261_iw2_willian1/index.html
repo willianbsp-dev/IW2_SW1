@@ -4,52 +4,113 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-  $("#soma").click(function(){
-    let soma = 2 + 4
-    $("div").html("<h1>" + soma + "</h1>");
-    $("h2").html("calculo: num1 + num2");
+  let speed = 0
+
+  $(".fast").click(function(){
+    if (speed >= 0) {
+      speed -= 100;
+    };
   });
-  $("#sub").click(function(){
-    let sub = 2 - 4
-    $("div").html("<h1>" + sub + "</h1>");
-    $("h2").html("calculo: num1 - num2");
+  $(".slow").click(function(){
+    speed += 100;
   });
-  $("#mult").click(function(){
-    let mult = 2 * 4
-    $("div").html("<h1>" + mult + "</h1>");
-    $("h2").html("calculo: num1 * num2");
+
+  $(".Hide").click(function(){
+    $("img").hide();
   });
-  $("#dividir").click(function(){
-    let dividir = 2 / 4
-    $("div").html("<h1>" + dividir + "</h1>");
-    $("h2").html("calculo: num1 / num2");
+  $(".Show").click(function(){
+    $("img").show();
   });
-  $("button").click(function(){
-    alert("calcular")
+  $(".Toggle").click(function(){
+    $("img").toggle();
+  });
+  $(".fadeIn").click(function(){
+    $("img").fadeIn(speed);
+  });
+  $(".fadeOut").click(function(){
+    $("img").fadeOut(speed);
+  });
+  $(".fadeToggle").click(function(){
+    $("img").fadeToggle(speed);
+  });
+  $(".slideUp").click(function(){
+    $("img").slideUp(speed);
+  });
+  $(".slideDown").click(function(){
+    $("img").slideDown(speed);
+  });
+  $(".slideToggle").click(function(){
+    $("img").slideToggle(speed);
   });
 });
 </script>
 <style>
-  button {
-    width: 100px;
+  body {
+    text-align: center;
+  }
+
+  #acao {
+    width: auto;
     height: 100px;
     font-size: xx-large;
-  };
+    margin: 8px;
+  }
+
+  .fast, .slow {
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+  }
+
+  .img {
+    height: 200px;
+    margin: 30px;
+  }
+
+  img {
+    height: 100%;
+  }
+
+  .velocidades {
+    margin-top: 50px;
+    display: inline-flex;
+    gap: 8px
+  }
+
+  .vel {
+    width: auto;
+    max-height: 100px;
+    font-size: 25px;
+    pointer-events: none;
+    cursor: default;
+  }
+
 </style>
 </head>
 <body>
-    <h1>numero 1: 2 <br>
-        numero 2: 4
-    </h1>
-    
-    <h2></h2>
+  <h1>Manipulção de imagem com efeitos JQuery</h1>
 
-    <button id="soma">+</button>
-    <button id="sub">-</button>
-    <button id="mult">*</button>
-    <button id="dividir">/</button>
-      
+  <div class="img">
+    <img src="images.jpg" alt="">
+  </div>
 
-    <div></div>
+  <button class="Hide" id="acao">Hide</button>
+  <button class="Show" id="acao">Show</button>
+  <button class="Toggle" id="acao">Toggle</button>
+  <button class="fadeOut" id="acao">FadeOut</button>
+  <button class="fadeIn" id="acao">FadeIn</button>
+  <button class="fadeToggle" id="acao">FadeToggle</button>
+  <button class="slideUp" id="acao">SlideUp</button>
+  <button class="slideDown" id="acao">SlideDown</button>
+  <button class="slideToggle" id="acao">SlideToggle</button>
+  
+  <br><br>
+  
+  <div class="velocidades">
+    <button class="slow">-</button>
+    <button class="vel">Velociadade</button>
+    <button class="fast">+</button>
+  </div>
+
 </body>
 </html>
