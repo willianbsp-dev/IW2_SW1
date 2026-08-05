@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".left").click(function(){
+    $("div").animate({left: '250px'});
+  });
+  $(".right").click(function(){
+    $("div").animate({right: '-270px'});
+  });
+});
+</script>
+<style>
+  button {
+    width: auto;
+    height: 100px;
+    font-size: xx-large;
+    margin: 8px;
+  }
+
+  div {
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+    position: relative;
+  }
+
+</style>
+</head>
+<body>
+  <h1>Teste animate JQuery</h1>
+
+  <br><br>
+
+  <div></div>
+
+  <br><br>
+
+  <button class="left">Left</button>
+  <button class="right">Right</button>
+</body>
+</html>

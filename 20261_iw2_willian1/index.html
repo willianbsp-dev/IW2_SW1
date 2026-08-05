@@ -7,12 +7,14 @@ $(document).ready(function(){
   let speed = 0
 
   $(".fast").click(function(){
-    if (speed >= 0) {
+    if (speed > 0) {
       speed -= 100;
     };
+    $(".mostrar").html(speed +"ms");
   });
   $(".slow").click(function(){
     speed += 100;
+    $(".mostrar").html(speed + "ms");
   });
 
   $(".Hide").click(function(){
@@ -111,6 +113,13 @@ $(document).ready(function(){
     <button class="vel">Velociadade</button>
     <button class="fast">+</button>
   </div>
+  
+  <br><br>
 
+  <h1>Velocidade: <div class="mostrar"></div></h1>
+
+  <br><br>
+
+  <button><a href="animate.html">Próxima pagina</a></button>
 </body>
 </html>
