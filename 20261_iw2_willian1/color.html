@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  const mapaCores = {
+    "rgb(0, 0, 255)": "azul",
+    "rgb(255, 0, 0)": "vermelho",
+    "rgb(0, 128, 0)": "verde"
+  }
+
+  $(".R").click(function(){
+    $(".texto").css("color", "red");
+  });
+  $(".G").click(function(){text
+    $(".texto").css("color", "green");
+  });
+  $(".B").click(function(){
+    $(".texto").css("color", "blue");
+  });
+  $(".qualCor").click(function(){
+    let cor = $(".texto").css("color");
+    let nomeCor = mapaCores[cor];
+    $(".mostrarCor").html(nomeCor);
+  })
+
+  $("#mais").click(function(){
+    let tamanhoAtual = parseInt($(".texto").css("font-size"));
+    let aumentar = 1;
+    let novoTamanho = tamanhoAtual + aumentar;
+    $(".texto").css("font-size", novoTamanho + "px");
+  });
+  $("#menos").click(function(){
+    let tamanhoAtual = parseInt($(".texto").css("font-size"));
+    let diminuir = 1;
+    let novoTamanho = tamanhoAtual - diminuir;
+    $(".texto").css("font-size", novoTamanho + "px");
+  });
+  $(".qualTamanho").click(function(){
+    $(".mostrarTamanho").html($(".texto").css("font-size"));
+  });
+
+  $(".Arial").click(function(){
+    $(".texto").css("font-family", "Arial");
+  });
+  $(".Verdana").click(function(){
+    $(".texto").css("font-family", "Verdana");
+  });
+  $(".Georgia").click(function(){
+    $(".texto").css("font-family", "Georgia");
+  });
+  $(".CN").click(function(){
+    $(".texto").css("font-family", "Courier New");
+  });
+  $(".TNR").click(function(){
+    $(".texto").css("font-family", "Times New Roman");
+  });
+  $(".qualFonte").click(function(){
+    $(".mostrarFonte").html($(".texto").css("font-family"));
+  });
+});
+</script>
+<style>
+  body {
+    text-align: center;
+  }
+
+  button {
+    width: auto;
+    height: 100px;
+    font-size: xx-large;
+    margin: 8px;
+  }
+
+  .texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+  }
+
+  .mostrarCor, .mostrarTamanho, .mostrarFonte {
+    width: 100%;
+    height: 100px;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .R {
+    background-color: rgba(255, 0, 0, 0.76);
+  }
+
+  .G {
+    background-color: rgba(0, 255, 0, 0.76);
+  }
+
+  .B {
+    background-color: rgba(0, 0, 255, 0.76);
+    margin-right: 80px;
+  }
+
+</style>
+</head>
+<body>
+  <h1>Teste troca de cor em JQuery</h1>
+    <br><br>
+  <div class="texto"><p>Teste cor</p></div>
+  <button class="R">Red</button>
+  <button class="G">Green</button>
+  <button class="B">Blue</button>
+  <button class="qualCor">Qual cor?</button>
+    <br>
+  <div class="mostrarCor"></div>
+    <hr>
+  <button id="mais">+</button>
+  <button class="qualTamanho">Qual tamanho?</button>
+  <button id="menos">-</button>
+    <br>
+  <div class="mostrarTamanho"></div>
+    <hr>
+  <button class="Arial">Arial</button>
+  <button class="Verdana">Verdana</button>
+  <button class="Georgia">Georgia</button>
+  <button class="CN">Courier New</button>
+  <button class="TNR">Times New Roman</button>
+  <button class="qualFonte">Qual fonte?</button>
+    <br> 
+  <div class="mostrarFonte"></div>
+
+  <br><br>
+
+  <button><a href="aula dia 02_09/form.html">Próxima pagina</a></button>
+</body>
+</html>

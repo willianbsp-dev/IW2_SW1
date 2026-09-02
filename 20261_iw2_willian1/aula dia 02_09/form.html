@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.gravar').click(function(){
+                let nome = $('#nome').val();
+                let telefone = $('#tel').val();
+                let email = $('#email').val();
+                $.ajax({
+                    url: "script.php",
+                    type: "POST",
+                    data: {
+                        nome: nome,
+                        telefone: telefone,
+                        email: email
+                    },
+                    dataType: "html",
+                }).done(function(resposta){
+                    console.log(resposta);
+                }).fail(function(jqXHR, textStatus){
+                    console.log("Request failed: " + textStatus);
+                }).always(function(){
+                    console.log("completou!!")
+                });
+            });
+            $('.limpar').click(function(){
+                $('#nome, #tel, #email').val('');
+            });
+        });
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 380px;
+            text-align: center; /* Centraliza textos gerais */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza os elementos filhos */
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza label e input */
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center; /* Centraliza o texto digitado */
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column; /* Botões empilhados e alinhados */
+            gap: 12px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .gravar {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .gravar:hover {
+            background-color: #5a67d8;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .limpar {
+            background-color: #f0f0f0;
+            color: #555;
+        }
+
+        .limpar:hover {
+            background-color: #e2e2e2;
+        }
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <h2>Cadastro</h2>
+
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome">
+        </div>
+
+        <div class="form-group">
+            <label for="tel">Telefone</label>
+            <input type="text" id="tel" placeholder="(00) 00000-0000">
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" placeholder="seu@email.com">
+        </div>
+
+        <div class="button-group">
+            <button class="gravar">Gravar</button>
+            <button class="limpar">Limpar</button>
+        </div>
+    </div>
+</body>
+</html>
