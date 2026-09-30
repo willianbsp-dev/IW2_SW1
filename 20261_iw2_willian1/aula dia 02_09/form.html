@@ -21,9 +21,9 @@
                     },
                     dataType: "html",
                 }).done(function(resposta){
-                    console.log(resposta);
+                    $('.mostrarInformacoes').html(resposta);
                 }).fail(function(jqXHR, textStatus){
-                    console.log("Request failed: " + textStatus);
+                    alert("Request failed: " + textStatus);
                 }).always(function(){
                     console.log("completou!!")
                 });
@@ -142,6 +142,10 @@
         .limpar:hover {
             background-color: #e2e2e2;
         }
+
+        .mostrarInformacoes {
+            text-align: center;
+        }
     </style>
 </head>
 <body> 
@@ -167,6 +171,14 @@
             <button class="gravar">Gravar</button>
             <button class="limpar">Limpar</button>
         </div>
+        
+        <div class="mostrarInformacoes">
+
+        </div>
+    </div>
+
+    <div class="container">
+        <button><a href="../aula dia 08_09/calculadora.html">Próxima pagina</a></button>
     </div>
 </body>
 </html>
